@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dk1bqjh6tthkg"]
+
+[ext_resource type="Script" uid="uid://c6gaj7wyemgoh" path="res://game/player/inventory/player_inventory.gd" id="1_rcaph"]
+[ext_resource type="PackedScene" uid="uid://c8kdsniibq74v" path="res://game/player/inventory/hotbar/hotbar.tscn" id="2_438oj"]
+
+[node name="PlayerInventory" type="Control" unique_id=1671018092 node_paths=PackedStringArray("hotbar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rcaph")
+hotbar = NodePath("Hotbar")
+
+[node name="Hotbar" parent="." unique_id=78359968 instance=ExtResource("2_438oj")]
+layout_mode = 1
+anchor_left = 0.024305556
+anchor_top = 0.84876543
+anchor_right = 0.024305556
+anchor_bottom = 0.94753087
+grow_horizontal = 1
+grow_vertical = 1

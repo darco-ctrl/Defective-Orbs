@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://brh1e6ldhx26v"]
+
+[ext_resource type="PackedScene" uid="uid://idn4ut1li8li" path="res://game/player/player.tscn" id="1_5520f"]
+[ext_resource type="Script" uid="uid://cir2sd5350hyy" path="res://game/main/main.gd" id="1_psm6y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu8ey"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.26002115, 0.26002115, 0.26002115, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5520f"]
+material = SubResource("StandardMaterial3D_uu8ey")
+size = Vector3(2000, 100, 100)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_psm6y"]
+
+[node name="Main" type="Node2D" unique_id=1506774831]
+script = ExtResource("1_psm6y")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1997468014]
+position = Vector2(525, 619)
+mesh = SubResource("BoxMesh_5520f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D" unique_id=118287149]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/StaticBody2D" unique_id=2062861588]
+position = Vector2(-4, -49)
+shape = SubResource("WorldBoundaryShape2D_psm6y")
+
+[node name="Player" parent="MeshInstance2D" unique_id=522966911 instance=ExtResource("1_5520f")]
+position = Vector2(-4, -163)

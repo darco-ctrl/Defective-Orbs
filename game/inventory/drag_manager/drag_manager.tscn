@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://drlm4vxb07jhn"]
+
+[ext_resource type="Script" uid="uid://dn0qek1eixo5s" path="res://game/inventory/drag_manager/drag_manager.gd" id="1_gixkv"]
+
+[node name="DragManager" type="Control" unique_id=1048832001 node_paths=PackedStringArray("drag_icon")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gixkv")
+drag_icon = NodePath("DragIcon")
+
+[node name="DragIcon" type="TextureRect" parent="." unique_id=1585210458]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+anchor_right = 0.055555556
+anchor_bottom = 0.09876543
+metadata/_edit_use_anchors_ = true

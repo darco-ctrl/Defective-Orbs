@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://cqi3vdk8xisur"]
+
+[ext_resource type="Script" uid="uid://d3ekhqgohm8nv" path="res://resources/scripts/potion_data.gd" id="1_f4is1"]
+[ext_resource type="PackedScene" uid="uid://b6s4omfrnmkiw" path="res://game/potions/jump_boost/jump_boost.tscn" id="1_wu201"]
+[ext_resource type="Texture2D" uid="uid://dfes6dfp11eyh" path="res://assets/potions/jump_boost.png" id="2_ryb5j"]
+
+[resource]
+script = ExtResource("1_f4is1")
+duration = 5.0
+potion_effect = ExtResource("1_wu201")
+description = "Gives a jump boost"
+name = "Jump Boost Potion"
+id = "potion_of_jump_boost"
+icon = ExtResource("2_ryb5j")
+metadata/_custom_type_script = "uid://d3ekhqgohm8nv"

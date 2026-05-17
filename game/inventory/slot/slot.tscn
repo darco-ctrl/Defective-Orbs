@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cgbgfuhkn4j5l"]
+
+[ext_resource type="Script" uid="uid://d1yd7kwpahx1c" path="res://game/inventory/slot/slot.gd" id="1_k0w8m"]
+
+[node name="Slot" type="Control" unique_id=2064276784 node_paths=PackedStringArray("item_icon")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchor_right = 0.055555556
+anchor_bottom = 0.09876543
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1_k0w8m")
+item_icon = NodePath("ItemIcon")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1380991603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemIcon" type="TextureRect" parent="." unique_id=1963489162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

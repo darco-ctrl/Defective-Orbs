@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryData" format=3 uid="uid://cp5k6obgrdq4u"]
+
+[ext_resource type="Script" uid="uid://diar34o5d8080" path="res://resources/scripts/inventory_data.gd" id="1_27y4f"]
+[ext_resource type="PackedScene" uid="uid://cgbgfuhkn4j5l" path="res://game/inventory/slot/slot.tscn" id="2_nrb6p"]
+
+[resource]
+script = ExtResource("1_27y4f")
+id = "player_inventory"
+max_slots = 10
+slot_scene = ExtResource("2_nrb6p")
+metadata/_custom_type_script = "uid://diar34o5d8080"
