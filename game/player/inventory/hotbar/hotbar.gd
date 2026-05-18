@@ -1,6 +1,7 @@
 extends Control
 class_name Hotbar
 
+
 @export var inventory_data: InventoryData
 
 @export var test_potion: PotionData
@@ -14,7 +15,6 @@ func add_potion(potion_data: PotionData) -> void:
 		if slot.slot_data.potion_data: continue
 
 		slot.set_potion(potion_data)
-		print("slot set to : " + slot.name)
 		return
 
 func fill_slots() -> void:

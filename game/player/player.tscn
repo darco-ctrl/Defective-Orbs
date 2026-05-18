@@ -7,9 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8soms"]
 size = Vector2(128, 125)
 
-[node name="Player" type="CharacterBody2D" unique_id=522966911]
+[node name="Player" type="CharacterBody2D" unique_id=522966911 node_paths=PackedStringArray("potions")]
 collision_layer = 2
 script = ExtResource("1_obar5")
+potions = NodePath("Potions")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1640135891]
 position = Vector2(0, -0.5)
@@ -22,3 +23,9 @@ texture = ExtResource("2_b2mth")
 
 [node name="PlayerInventory" parent="PlayerUI" unique_id=1671018092 node_paths=PackedStringArray("player") instance=ExtResource("3_8soms")]
 player = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1816152414]
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="Potions" type="Node" parent="." unique_id=553249682]

@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://b6s4omfrnmkiw"]
 
+[ext_resource type="Script" uid="uid://ct5mrn8mnmx1k" path="res://game/potions/jump_boost/jump_boost.gd" id="1_lc8iw"]
+
 [node name="JumpBoost" type="Node" unique_id=2016730574]
+script = ExtResource("1_lc8iw")
+
+[node name="Timer" type="Timer" parent="." unique_id=1640562729]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

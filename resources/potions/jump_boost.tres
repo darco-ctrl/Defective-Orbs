@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_f4is1")
 duration = 5.0
-potion_effect = ExtResource("1_wu201")
+potion_scene = ExtResource("1_wu201")
 description = "Gives a jump boost"
 name = "Jump Boost Potion"
 id = "potion_of_jump_boost"

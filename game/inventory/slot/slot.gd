@@ -22,14 +22,11 @@ func set_potion(potion_data: PotionData) -> bool:
 	return is_add_item_successful
 
 func update_slot() -> void:
-	print(" " + name + ": updating")
 	var is_slot_empty = not slot_data.potion_data
 	if is_slot_empty:
-		print(" freeing ")
 		free_slot()
 	else:
 		item_icon.texture = slot_data.potion_data.icon
-		print(" setting new texture ")
 
 func free_slot() -> void:
 	slot_data.potion_data = null
@@ -76,12 +73,8 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 	return false
 
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	var drag_slot_data: SlotData = data as SlotData
-	if not drag_slot_data: return
-
+func swap_slot(source_slot: Slot, drag_slot_data: SlotData) -> void:
 	var temp_slot_data: SlotData = slot_data
-	var source_slot: Slot = drag_slot_data.source_slot
 
 	set_slot_data(drag_slot_data)
 	source_slot.set_slot_data(temp_slot_data)
@@ -89,7 +82,19 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	current_drag_data = null
 	update_slot()
 	source_slot.update_slot()
-	print("end")
+
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	var drag_slot_data: SlotData = data as SlotData
+	if not drag_slot_data: return
+
+	var source_slot: Slot = drag_slot_data.source_slot
+	if source_slot == self: 
+		slot_data = drag_slot_data
+
+		update_slot()
+	else:
+		swap_slot(source_slot, drag_slot_data)
 
 func set_slot_data(new_slot_data: SlotData) -> void:
 	slot_data = new_slot_data
@@ -98,3 +103,23 @@ func set_slot_data(new_slot_data: SlotData) -> void:
 func is_empty() -> bool:
 	if slot_data.potion_data: return false
 	else: return true
+
+func slot_interacted() -> void:
+	if not slot_data.potion_data: return
+
+	var player: Player = GlobalInventoryAccess.player_inventory.player
+	var potion_data: PotionData = slot_data.potion_data
+	free_slot()
+
+	var potion: Potion = potion_data.potion_scene.instantiate()
+	potion.player = player
+	potion.potion_data = potion_data
+
+	player.potions.add_child(potion)
+
+func _on_gui_input(event: InputEvent) -> void:
+	var mouse_event: InputEventMouseButton = event as InputEventMouseButton
+	if mouse_event and mouse_event.is_pressed():
+		if mouse_event.button_index == MOUSE_BUTTON_RIGHT:
+			slot_interacted()
+		

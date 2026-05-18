@@ -1,8 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
+@export var potions: Node
+
 @export var speed 		 : float = 300.0
 @export var jump_velocity: float = -400.0
+
+@export var jump_power: float = 1
+@export var speed_power: float = 1
 
 var can_jump: bool = false
 
@@ -19,12 +24,12 @@ func move(delta) -> void:
 	# Handle jump.
 	if Input.is_action_pressed("jump") and can_jump:
 		can_jump = false
-		velocity.y = jump_velocity
+		velocity.y = jump_velocity * jump_power
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = direction * speed
+		velocity.x = direction * speed * speed_power
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.3)
 
