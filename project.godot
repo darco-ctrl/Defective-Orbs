@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Defective Potions"
+config/name="Defective Orbs"
 run/main_scene="uid://brh1e6ldhx26v"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+OrbManager="*uid://cjpu55pstc2mo"
 
 [input]
 

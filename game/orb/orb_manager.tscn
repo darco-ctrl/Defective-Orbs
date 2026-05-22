@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://wqrkgqa0yfef"]
+
+[sub_resource type="GDScript" id="GDScript_knc48"]
+script/source = "extends Node
+
+enum Orb { NONE, RAIN }
+
+var current_active_orb: Orb = Orb.NONE
+
+"
+
+[node name="OrbManager" type="Node" unique_id=585149118]
+script = SubResource("GDScript_knc48")

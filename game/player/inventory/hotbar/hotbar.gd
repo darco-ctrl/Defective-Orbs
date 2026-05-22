@@ -4,13 +4,13 @@ class_name Hotbar
 
 @export var inventory_data: InventoryData
 
-@export var test_potion: PotionData
+@export var test_potion: OrbData
 
 func _ready() -> void:
 	fill_slots()
 	add_potion(test_potion)
 
-func add_potion(potion_data: PotionData) -> void:
+func add_potion(potion_data: OrbData) -> void:
 	for slot in inventory_data.slots:
 		if slot.slot_data.potion_data: continue
 

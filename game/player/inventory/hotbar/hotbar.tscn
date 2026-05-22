@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blq2gwjx763qq" path="res://game/player/inventory/hotbar/hotbar.gd" id="1_6j5y6"]
 [ext_resource type="Resource" uid="uid://cp5k6obgrdq4u" path="res://resources/inventories/player_inventory_data.tres" id="2_ilhx8"]
-[ext_resource type="Resource" uid="uid://cqi3vdk8xisur" path="res://resources/potions/jump_boost.tres" id="3_piivb"]
+[ext_resource type="Resource" uid="uid://cqi3vdk8xisur" path="res://resources/orbs/rain_orb.tres" id="3_piivb"]
 
 [node name="Hotbar" type="HBoxContainer" unique_id=78359968]
 custom_minimum_size = Vector2(0, 64)

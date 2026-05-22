@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OrbData" format=3 uid="uid://cqi3vdk8xisur"]
+
+[ext_resource type="Texture2D" uid="uid://dfes6dfp11eyh" path="res://assets/potions/jump_boost.png" id="1_wmac8"]
+[ext_resource type="PackedScene" uid="uid://b6s4omfrnmkiw" path="res://game/orb/rain/rain_orb.tscn" id="2_srtkh"]
+[ext_resource type="Script" uid="uid://d3ekhqgohm8nv" path="res://resources/orbs/orb_data.gd" id="3_6nhqy"]
+
+[resource]
+script = ExtResource("3_6nhqy")
+orb_type = 1
+mana_reduction_rate = 1.0
+orb_scene = ExtResource("2_srtkh")
+description = "Spawns rain around player"
+name = "Orb Of Rain"
+id = "orb_of_rain"
+icon = ExtResource("1_wmac8")
+metadata/_custom_type_script = "uid://d3ekhqgohm8nv"

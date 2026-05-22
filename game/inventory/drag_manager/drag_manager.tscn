@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drlm4vxb07jhn"]
 
 [ext_resource type="Script" uid="uid://dn0qek1eixo5s" path="res://game/inventory/drag_manager/drag_manager.gd" id="1_gixkv"]
+[ext_resource type="PackedScene" uid="uid://qhysd5xgkm7v" path="res://game/Level/Level_1/level_1.tscn" id="2_4wfxj"]
 
 [node name="DragManager" type="Control" unique_id=1048832001 node_paths=PackedStringArray("drag_icon")]
 layout_mode = 3
@@ -18,3 +19,5 @@ layout_mode = 0
 anchor_right = 0.055555556
 anchor_bottom = 0.09876543
 metadata/_edit_use_anchors_ = true
+
+[node name="Level_1" parent="." unique_id=1556765021 instance=ExtResource("2_4wfxj")]

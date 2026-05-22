@@ -11,7 +11,7 @@ func create_slot_data() -> void:
 
 	slot_data.source_slot = self
 
-func set_potion(potion_data: PotionData) -> bool:
+func set_potion(potion_data: OrbData) -> bool:
 	var is_add_item_successful: bool = false
 	if slot_data:
 		slot_data.potion_data = potion_data
@@ -108,12 +108,12 @@ func slot_interacted() -> void:
 	if not slot_data.potion_data: return
 
 	var player: Player = GlobalInventoryAccess.player_inventory.player
-	var potion_data: PotionData = slot_data.potion_data
+	var potion_data: OrbData = slot_data.potion_data
 	free_slot()
 
-	var potion: Potion = potion_data.potion_scene.instantiate()
+	var potion: OrbBase = potion_data.orb_scene.instantiate()
 	potion.player = player
-	potion.potion_data = potion_data
+	potion.orb_data = potion_data
 
 	player.potions.add_child(potion)
 

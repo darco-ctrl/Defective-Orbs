@@ -1,23 +1,56 @@
 [gd_scene format=3 uid="uid://idn4ut1li8li"]
 
 [ext_resource type="Script" uid="uid://cn8m00vq0jvwx" path="res://game/player/player.gd" id="1_obar5"]
-[ext_resource type="Texture2D" uid="uid://b0imt24vesxkb" path="res://icon.svg" id="2_b2mth"]
+[ext_resource type="Texture2D" uid="uid://c2waflaqjxvkm" path="res://assets/player/Sprite-0002-Sheet.png" id="2_8soms"]
 [ext_resource type="PackedScene" uid="uid://dk1bqjh6tthkg" path="res://game/player/inventory/player_inventory.tscn" id="3_8soms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8soms"]
-size = Vector2(128, 125)
+size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=522966911 node_paths=PackedStringArray("potions")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4w0n"]
+atlas = ExtResource("2_8soms")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fytw"]
+atlas = ExtResource("2_8soms")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ste8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4w0n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fytw")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=522966911 node_paths=PackedStringArray("potions", "animated_sprite", "debbug_label")]
 collision_layer = 2
 script = ExtResource("1_obar5")
 potions = NodePath("Potions")
+animated_sprite = NodePath("AnimatedSprite")
+debbug_label = NodePath("CanvasLayer/Control/Label")
+speed = 70.0
+jump_velocity = -200.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1640135891]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_8soms")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1191121697]
-texture = ExtResource("2_b2mth")
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1592483343]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4ste8")
+animation = &"side"
+autoplay = "idle"
 
 [node name="PlayerUI" type="CanvasLayer" parent="." unique_id=369169259]
 
@@ -25,7 +58,26 @@ texture = ExtResource("2_b2mth")
 player = NodePath("../..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1816152414]
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
 [node name="Potions" type="Node" parent="." unique_id=553249682]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1171805258]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=955053146]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1562844308]
+layout_mode = 0
+offset_right = 19.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
+text = "22"

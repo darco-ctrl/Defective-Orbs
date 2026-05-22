@@ -3,7 +3,7 @@ extends Resource
 class_name SlotData
 
 var source_slot: Slot
-var potion_data: PotionData
+var potion_data: OrbData
 
 func clear_item() -> void:
     potion_data = null
